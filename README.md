@@ -5,3 +5,6 @@ Hello everyone,
 
 here you can find lecture notes.
 I will upload everything here or piazza.
+
+
+Link to piazza: http://piazza.com/kazak_british_technical_university/fall2019/cs103
