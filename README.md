@@ -8,3 +8,4 @@ I will upload everything here or piazza.
 
 
 Link to piazza: http://piazza.com/kazak_british_technical_university/fall2019/cs103
+Code: link.substr(-5)
