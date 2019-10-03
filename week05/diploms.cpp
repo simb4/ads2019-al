@@ -5,8 +5,8 @@ typedef long long ll;
 
 ll w, h, n;	
 
-bool fits(double a) { // a - side of square
-	return floor(a / h) * floor(a / w) >= n;
+bool fits(ll a) { // a - side of square
+	return floor((double)a / h) * floor((double)a / w) >= n;
 }
 
 // problem 
@@ -15,11 +15,10 @@ int main() {
 	
 	cin >> w >> h >> n;
 
-	ll l = 1, r = (ll)1e9, res = (ll)1e9;
+	// a >= 10^14 => a / 10^9 * a / 10^9 >= 10^9
+	ll l = 1, r = (ll)1e14, res = (ll)1e14;
 	while (l <= r) {
 		ll mid = (l + r) / 2;
-		// cout << "[" << l << ' ' << r << "]\n";
-		// cout << mid << ' ' << fits(mid) << ' ' << n << "\n";
 		if (fits(mid)) {
 			res = mid;
 			r = mid - 1; // [l, mid-1]

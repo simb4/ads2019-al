@@ -7,7 +7,7 @@ struct node {
 	node *left;
 	node *right;
 	node(int val) {
-		this->height = 0;
+		this->height = 1;
 		this->val = val;
 		this->left = nullptr;
 		this->right = nullptr;
@@ -16,9 +16,9 @@ struct node {
 
 void out(node* v, int spaces=0) {
 	if (v == nullptr) return;
-	cout << '!' << spaces << ' ' << v->val << ' ' << v->left << "\n";
 	out(v->left, spaces + 2);
-	for (int i = 0; i < spaces; i++) cout << "\t";
+	for (int i = 0; i < spaces; i++) cout << " ";
+	cout << v->val << "\n";
 	out(v->right, spaces + 2);
 }
 
@@ -34,7 +34,6 @@ int get_h(node *v) {
 void add_node(node *&v, int new_val) {
 	if (v == nullptr) {
 		v = new node(new_val);
-		assert(v->left == nullptr);
 		return;
 	}
 	if (new_val <= v->val) {
@@ -46,18 +45,38 @@ void add_node(node *&v, int new_val) {
 	v->height = max(get_h(v->left), get_h(v->right)) + 1;
 }
 
+node* find(node *v, int val) {
+	if (v == nullptr)
+		return nullptr;
+	if (val == v->val)
+		return v;
+	if (val < v->val)
+		return find(v->left, val);
+	return find(v->right, val);
+
+}
+
 int main () {
 
-	node *root;
+	node *root = nullptr;
+	assert(root == nullptr);
 	while(true) {
 		int x;
 		cin >> x;
 		if (x == 0) break;
+
+		// check if x is already in tree
+		node *v = find(root, x);
+		// if so, skip adding this value
+		if (v != nullptr) continue;
+
 		// if root is NULL (or nullptr - is newer replacement of NULL)
 		// root will be initialized in first if since we accept reference in function
 		add_node(root, x);
-		assert(root->left == nullptr);
-		out(root);
+
+		// cout << "=====\n";
+		// out(root);
+		// cout << "=====\n";
 	}
 
 	cout << root->height << "\n";

@@ -15,7 +15,7 @@ void reference_modify(int &x) {
 int main() {
 	/* simple example of reference */
 	int x = 5;
-	cout << "Before " << x << "\n";
+	cout << "Before " << x << "\n"; // 5
 	tipa_modify(x);
 	cout << "After without reference " << x << "\n";
 	reference_modify(x);
