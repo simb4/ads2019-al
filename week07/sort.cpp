@@ -2,15 +2,6 @@
 
 using namespace std;
 
-
-int heapify_up(int *a, int v) {
-	while (v > 1 && a[v] > a[v / 2]) {
-		swap(a[v], a[v/2]);
-		v /= 2;
-	}
-	return v;
-}
-
 void heapify_down(int *a, int n, int v) {
 	while (v <= n) {
 		int l = 2 * v; // left son
@@ -24,8 +15,7 @@ void heapify_down(int *a, int n, int v) {
 			s = r;
 
 		// if v is max, then everything is ok
-		if (s == v)
-			return;
+		if (s == v) return;
 		// go down to vertex s
 		swap(a[v], a[s]);
 		v = s;
@@ -51,13 +41,13 @@ void heap_sort(int *a, int n) { // sort an array [1..n]
 	for (int i = n/2; i > 0; i--) {
 		heapify_down(a, n, i);
 	}
-	puts("build heap");
+	// puts("build heap");
 	out_array(a, n);
 	// n  - size of inital array, that we descrease
 	// 		until we removed all maxes
 	while (n > 1) {
 		remove_top(a, n);
-		printf("step %d:\n", n);
+		// printf("step %d:\n", n);
 		out_array(a, n);
 	}
 }
@@ -69,12 +59,17 @@ int a[100005], n;
 
 int main() {
 
+	/*
+		problem from
+		https://informatics.msk.ru/mod/statements/view3.php?id=1234&chapterid=1171#1
+	*/
+
 	scanf("%d", &n);
 	for (int i = 1; i <= n; i++) {
 		scanf("%d", a + i);
 	}
 	heap_sort(a, n);
-	puts("sorted array:");
+	// puts("sorted array:");
 	out_array(a, n);
 
 

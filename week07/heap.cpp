@@ -58,6 +58,11 @@ int remove_top() { // a.k.a. pop()
 
 int main() {
 
+	/*
+		problem from
+		https://informatics.msk.ru/mod/statements/view3.php?id=1234&chapterid=1164#1
+	*/
+
 	scanf("%d", &n);
 	for (int i = 1; i <= n; i++) {
 		scanf("%d", a + i);
