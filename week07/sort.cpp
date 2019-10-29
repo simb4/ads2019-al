@@ -59,6 +59,12 @@ int a[100005], n;
 
 int main() {
 
+	cout << 'm' - 'a' + 1 << "+";
+	cout << 'a' - 'a' + 1 << "+";
+	cout << 't' - 'a' + 1 << "+";
+	cout << 'h' - 'a' + 1;
+	cout << endl;
+	return 0;
 	/*
 		problem from
 		https://informatics.msk.ru/mod/statements/view3.php?id=1234&chapterid=1171#1
