@@ -1,0 +1,2 @@
+String 'stringFromInTxt' outputed to in.txt
+This is debug output.I'll will go to retake!
