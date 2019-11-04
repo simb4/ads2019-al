@@ -39,9 +39,9 @@ void out_trie(int v = 1, int tab = 2, int h=0) {
 		if (u != 0) {
 			for (int j=0;j<tab;j++) DEBUG << ' ';
 
-			DEBUG << (char)(i + 'a') << ' ';
 			if  (u == h) DEBUG << '!';
-			DEBUG << u << "\n";
+			DEBUG << (char)(i + 'a') << ' ';
+			DEBUG << u << " cnt="<< cnt[u] << "\n";
 			out_trie(u, tab + 2, h);
 		}
 	}
@@ -70,6 +70,8 @@ int get_trie(string t) {
 		if (to[ch][v] == 0)
 			return 0;
 		v = to[ch][v];
+		out_trie(1, 2, v);
+		DEBUG << "----------------------\n";
 	}
 	return cnt[v];
 }
@@ -88,7 +90,9 @@ int main() {
 	while (m--) {
 		string t;
 		cin >> t;
+		DEBUG << "CALCULATE ANSWER FOR STRING: " << t << "\n";
 		cout << get_trie(t) << "\n";
+		DEBUG << "=============================\n";
 	}
 
 
