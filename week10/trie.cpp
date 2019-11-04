@@ -8,7 +8,20 @@ const int N = 1000;
 
 int vn = 1, to[26][N], cnt[N];
 // "to[a][v] = u" means from v to u
-// there is an edge with letter 'x'
+// there is an edge with letter 'a'
+// e.g. if:
+// to[a][1] = 2 - son of 1 by letter a
+// to[b][1] = 3 - son of 1 by letter b
+// to[b][2] = 4 - son of 2 by letter b
+//     1
+//    / \
+//  a/   \b
+//  /     \
+// 2       3
+// \
+//  \b
+//   \
+//    4
 
 int newVertex() {
 	// give new id to vertex

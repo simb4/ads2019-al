@@ -1,16 +1,24 @@
 #include <iostream>
 using namespace std;
 const int N = 1000;
-
 #define IS_DEBUG true
 #define DEBUG if (IS_DEBUG) cout
 // directive, that says
 // that I'm gonna replace DEBUG with 'if (IS_DEBUG) cout'
 // everywhere on compilation step
 
+/*
+	They are subjected to make settings on compilation step, for ex:
+	#ifdef WIN_64
+		#define HAS_MSWORD 1
+	#else
+		#define HAS_MSWORD 0
+	#endif
+*/
+
 int main() {
 
-	// #define FILE false
+	#define FILE false
 	// directive, that says
 	// that I'm gonna replace FILE by the "false"
 	// everywhere on compilation step
@@ -19,11 +27,12 @@ int main() {
 
 	#ifdef FILE // if FILE is defined (whatever value)
 	freopen("in.txt", "r", stdin);
-	// file  ^this      ^read  ^this stream reads from in.txt
+	// file  ^this     ^read  ^this stream reads from in.txt
 	freopen("out.txt", "w", stdout);
-	// from  ^this      ^write   ^this stream writes to out.txt
+	// from  ^this     ^write   ^this stream writes to out.txt
 	// Note: if FILE is defined, input is expected in file.
 	#endif
+
 	string s;
 	cin >> s;
 	cout << "String '" << s << "' outputed to ";
