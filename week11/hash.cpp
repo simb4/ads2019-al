@@ -8,6 +8,8 @@ int h[N], pw[N], n, ans;
 
 int get_hash(int l, int r) {
 	if (l == 0) return h[r];
+	// h[r] = p^(r-1)s[0] + ... + p^(r-l+2)s[l-2] + p^(r-l+1)s[l-1] + HASH[l,r]
+	// h[l] = p^(l-1)s[0] + ... + p*s[l-2] + s[l-1]
 	return h[r] - h[l-1] * pw[r-l+1];
 }
 
